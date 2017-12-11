@@ -1,3 +1,9 @@
+@font-face
+{ 
+    font-family: 'BerkShire';
+    src: url('./font/berkshireswash-regular.ttf') format('truetype');
+}
+
 body
 {
   margin: 0;
