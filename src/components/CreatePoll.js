@@ -41,7 +41,7 @@ class CreatePoll extends Component {
                     </FormGroup>
                     <FormGroup check row>
                         <Col sm={{ size: 10, offset: 2 }}>
-                            <Button style={{float: 'right', cursor: 'pointer'}}>Submit</Button>
+                            <Button style={{float: 'right', cursor: 'pointer', backgroundColor: 'tomato', border: 'none'}}>Publish Poll</Button>
                         </Col>
                     </FormGroup>
                 </Form>
