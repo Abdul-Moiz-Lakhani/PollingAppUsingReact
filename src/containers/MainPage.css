@@ -38,8 +38,20 @@
 
 .pollingLogoContainer > h1
 {
-    margin: 10px 0;
+    margin: 10px 0 20px 0;
     font-family: 'BerkShire';
     font-size: 50px;
     color: darkgray;
+}
+
+.navbarContainer
+{
+    margin: auto;
+    width: 80%;
+}
+
+.navbarTabs
+{
+    margin: auto;
+    width: 52%;
 }

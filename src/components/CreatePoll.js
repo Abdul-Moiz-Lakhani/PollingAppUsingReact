@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class App extends Component {
+class CreatePoll extends Component {
     render() {
         return (
             <div>
-                <h1>Hello</h1>
+                <h1>Creating Poll</h1>
             </div>
         );
     }
 }
 
-export default App;
+export default CreatePoll;

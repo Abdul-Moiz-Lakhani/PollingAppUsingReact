@@ -1,19 +1,21 @@
-import React from 'react';
-import { Route, Router } from 'react-router-dom';
-// import App from './components/CreatePoll';
-import MainPage from './containers/MainPage';
+// import React from 'react';
+// import { Route, Router, Switch } from 'react-router-dom';
+// import CreatePoll from './components/CreatePoll';
+// import ShowPreviousPolls from './components/ShowPreviousPolls';
 
-import createBrowserHistory from 'history/createBrowserHistory';
-const customHistory = createBrowserHistory();
+// import createBrowserHistory from 'history/createBrowserHistory';
+// const customHistory = createBrowserHistory();
 
-const AppRoutes = () => (
-  (
-    <Router history={customHistory}>
-      <div>
-          <Route path="/" component={MainPage} />
-      </div>
-    </Router>
-  )
-)
+// const AppRoutes = (props) => (
+//   (
+//     <Router history={customHistory}>
+//       <div>
+//           <Route exact path="/" component={CreatePoll} />
+//           <Route path="/createpoll" component={CreatePoll} />
+//           <Route path="/previouspolls" component={ShowPreviousPolls} />
+//       </div>
+//     </Router>
+//   )
+// )
 
-export default AppRoutes;
+// export default AppRoutes;
