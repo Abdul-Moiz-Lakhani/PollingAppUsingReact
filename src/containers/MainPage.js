@@ -34,12 +34,12 @@ class MainPage extends Component {
                     <div className="navbarContainer">
                         <Nav tabs className="navbarTabs">
                             <NavItem>
-                                <NavLink tag={Link} to="/createpoll" className={this.state.activeTab === '1' ? 'active' : ''} onClick={() => { this.toggle('1') }}>
+                                <NavLink tag={Link} to="/createpoll" className={this.state.activeTab === '1' ? 'active' : 'notActive'} onClick={() => { this.toggle('1') }}>
                                     Create New Poll
                                 </NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink tag={Link} to="/previouspolls" className={this.state.activeTab === '2' ? 'active' : ''} onClick={() => { this.toggle('2') }}>
+                                <NavLink tag={Link} to="/previouspolls" className={this.state.activeTab === '2' ? 'active' : 'notActive'} onClick={() => { this.toggle('2') }}>
                                     Show Previous Polls
                                 </NavLink>
                             </NavItem>
