@@ -1,0 +1,22 @@
+.mainPageBgImage
+{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./../images/pollingVector2.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.mainContainer
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    margin: auto;
+    width: 50%;
+    height: 80vh;
+    background-color: white;
+}
