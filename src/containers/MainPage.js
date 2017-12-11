@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PollingSymbol from './../images/pollsymbol.png';
-import { Nav, NavItem, NavLink } from 'reactstrap';
+import { Nav, NavItem, NavLink, Fade } from 'reactstrap';
 import './MainPage.css'
 import { Route, Router, Link } from 'react-router-dom';
 import classnames from 'classnames';
 import CreatePoll from './../components/CreatePoll';
-import ShowPreviousPolls from './../components/ShowPreviousPolls';
+import ShowAllPolls from './../components/ShowAllPolls';
 
 class MainPage extends Component {
 
@@ -15,6 +15,8 @@ class MainPage extends Component {
         this.state = {
             activeTab: '1'
         };
+
+        this.toggle = this.toggle.bind(this)
     }
 
     toggle(tab) {
@@ -39,16 +41,17 @@ class MainPage extends Component {
                                 </NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink tag={Link} to="/previouspolls" className={this.state.activeTab === '2' ? 'active' : 'notActive'} onClick={() => { this.toggle('2') }}>
-                                    Show Previous Polls
+                                <NavLink tag={Link} to="/allpolls" className={this.state.activeTab === '2' ? 'active' : 'notActive'} onClick={() => { this.toggle('2') }}>
+                                    Show All Polls
                                 </NavLink>
                             </NavItem>
                         </Nav>
                     </div>
-                    <div>
+                    <Fade tag="div">
+                        <Route exact path="/" component={CreatePoll} />
                         <Route path="/createpoll" component={CreatePoll} />
-                        <Route path="/previouspolls" component={ShowPreviousPolls} />
-                    </div>
+                        <Route path="/allpolls" component={ShowAllPolls} />
+                    </Fade>
                 </div>
             </div>
         )
