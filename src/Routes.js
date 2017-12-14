@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Router, Switch, Link } from 'react-router-dom';
+import { Route, Router, Switch, NavLink as Link } from 'react-router-dom';
 import CreatePoll from './components/CreatePoll';
 import ShowAllPolls from './components/ShowAllPolls';
 import './containers/MainPage.css';
@@ -23,8 +23,6 @@ class AppRoutes extends React.Component {
 
     toggle(tab) {
 
-                
-
         this.setState({
             activeTab: tab
         })
@@ -42,12 +40,12 @@ class AppRoutes extends React.Component {
                         <div className="navbarContainer">
                             <Nav tabs className="navbarTabs">
                                 <NavItem>
-                                    <NavLink className='active' tag={Link} to="/createpoll">
+                                    <NavLink activeClassName='active' className='notActive' tag={Link} to="/createpoll">
                                         Create New Poll
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} to="/allpolls">
+                                    <NavLink activeClassName='active' className='notActive' tag={Link} to="/allpolls">
                                         Show All Polls
                                     </NavLink>
                                 </NavItem>

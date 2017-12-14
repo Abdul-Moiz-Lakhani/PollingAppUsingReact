@@ -1,7 +1,29 @@
 import React, { Component } from 'react';
-import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Alert, Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { connect } from 'react-redux';
+import {showPassedName} from './../Redux/Action'; 
 
 class CreatePoll extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            error: false,
+            pollName: '',
+            pollQuestion: '',
+            optionA: '',
+            optionB: '',
+            optionC: '',
+            optionD: '',
+            deleteKey: ''
+        }
+    }
+
+    handleOnChange(ev) {
+        this.props.showPassedName(ev.target.value)
+    }
+
     render() {
         return (
             <div className="pollFormContainer">
@@ -9,7 +31,7 @@ class CreatePoll extends Component {
                     <FormGroup row>
                         <Label for="pollname" sm={3}>Poll Name</Label>
                         <Col sm={9}>
-                            <Input type="text" name="pollname" placeholder="Write Here" title="Give unique name to your Poll" required />
+                            <Input type="text" name="pollname" placeholder="Write Here" title="Give unique name to your Poll" required onChange={this.handleOnChange.bind(this)} />
                         </Col>
                     </FormGroup>
                     <FormGroup row>
@@ -40,20 +62,45 @@ class CreatePoll extends Component {
                         </Col>
                     </FormGroup>
                     <FormGroup row>
-                        <Label for="polldeletekey" sm={3}>Deletion Key</Label>
-                        <Col sm={9}>
+                        <Label for="polldeletekey" sm={4}>Enter Deletion Key</Label>
+                        <Col sm={8}>
                             <Input type="password" name="polldeletekey" placeholder="Insert Here" title="This key will be required when you want to delete this Poll" required />
                         </Col>
                     </FormGroup>
                     <FormGroup row>
                         <Col sm={{ size: 10, offset: 2 }}>
-                            <Button title="Click to Publish Poll" style={{float: 'right', cursor: 'pointer', backgroundColor: 'tomato', border: 'none'}}>Publish Poll</Button>
+                            <Button title="Click to Publish Poll" style={{ float: 'right', cursor: 'pointer', backgroundColor: 'tomato', border: 'none' }}>Publish Poll</Button>
                         </Col>
                     </FormGroup>
                 </Form>
+                {
+                    !this.state.error ? (
+                        <Alert color="success">
+                            Poll Successfully Published! Click Show All Posts to see the Poll
+                        </Alert>
+                    ) : (
+                            <Alert color="danger">
+                                Error Occured! Poll failed to Publish. See your Internet Connection
+                            </Alert>
+                        )
+                }
             </div>
         );
     }
 }
 
-export default CreatePoll;
+const mapStateToProps = (state) => {
+    return {
+        showName: state.showName
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        showPassedName: (name) => {
+            dispatch(showPassedName(name))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreatePoll);

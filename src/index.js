@@ -7,6 +7,13 @@ import 'bootstrap/dist/css/bootstrap.css';
 // import MainPage from './containers/MainPage';
 import AppRoute from './Routes';
 import registerServiceWorker from './registerServiceWorker';
+import {Provider} from 'react-redux';
+import {store} from './Redux/Store';
 
-ReactDOM.render(<AppRoute />, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <AppRoute />
+    </Provider>,
+    document.getElementById('root')
+);
 registerServiceWorker();
